@@ -6,7 +6,7 @@
 #    By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/23 13:48:18 by yogun             #+#    #+#              #
-#    Updated: 2025/01/09 18:06:49 by agaga            ###   ########.fr        #
+#    Updated: 2025/01/09 19:25:09 by agaga            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,18 @@ SRC =	srcs/push_swap/push_swap.c \
 		srcs/push_swap/solver_utils_ab.c \
 		srcs/push_swap/solver_utils_ba.c \
 		srcs/push_swap/ft_rotate_and_push.c \
-		srcs/push_swap/operations.c \
-		srcs/push_swap/operations_2.c \
-		srcs/push_swap/operations_3.c \
-		srcs/push_swap/ft_check_dup.c \
+		srcs/operations/pa.c \
+		srcs/operations/pb.c \
+		srcs/operations/ra.c \
+		srcs/operations/rb.c \
+		srcs/operations/rr.c \
+		srcs/operations/rra.c \
+		srcs/operations/rrb.c \
+		srcs/operations/rrr.c \
+		srcs/operations/sa.c \
+		srcs/operations/sb.c \
+		srcs/operations/ss.c \
+ 		srcs/push_swap/ft_check_dup.c \
 		srcs/push_swap/ft_check_sorted.c \
 		srcs/push_swap/ft_error_print.c \
 		srcs/push_swap/ft_free.c \
