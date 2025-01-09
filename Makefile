@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/23 13:48:18 by yogun             #+#    #+#              #
-#    Updated: 2025/01/09 19:25:09 by agaga            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = push_swap
 CC = cc
 RM = rm -f
@@ -20,7 +8,7 @@ SRC_DIR = srcs/
 
 SRC =	srcs/push_swap/push_swap.c \
 		srcs/push_swap/algorithm.c \
-		srcs/push_swap/ft_add_back.c \
+		srcs/list/ft_add_back.c \
 		srcs/push_swap/ft_stack_new.c \
 		srcs/push_swap/ft_check_utils.c \
 		srcs/push_swap/ft_parse.c \
@@ -42,10 +30,10 @@ SRC =	srcs/push_swap/push_swap.c \
 		srcs/push_swap/ft_check_sorted.c \
 		srcs/push_swap/ft_error_print.c \
 		srcs/push_swap/ft_free.c \
-		srcs/push_swap/lst_utils.c \
-		srcs/push_swap/lst_utils_2.c \
+		srcs/list/lst_utils.c \
+		srcs/list/lst_utils_2.c \
 		srcs/push_swap/ft_parse_args_quoted.c \
-		srcs/push_swap/ft_list_args.c \
+		srcs/list/ft_list_args.c \
 		srcs/push_swap/ft_check_args.c \
 		srcs/push_swap/ft_sort_big.c \
 		srcs/push_swap/ft_sort_three.c \
