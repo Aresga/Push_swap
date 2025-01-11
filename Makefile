@@ -6,15 +6,14 @@ LIBFTDIR = libft/
 OBJ_DIR = obj/
 SRC_DIR = srcs/
 
-SRC =	srcs/push_swap/push_swap.c \
-		srcs/push_swap/algorithm.c \
-		srcs/list/ft_add_back.c \
-		srcs/push_swap/ft_stack_new.c \
-		srcs/push_swap/ft_check_utils.c \
-		srcs/push_swap/ft_parse.c \
-		srcs/push_swap/solver_utils_ab.c \
-		srcs/push_swap/solver_utils_ba.c \
-		srcs/push_swap/ft_rotate_and_push.c \
+SRC =	srcs/main.c \
+		srcs/algorithm/algorithm.c \
+		srcs/algorithm/solver_utils_ab.c \
+		srcs/algorithm/solver_utils_ba.c \
+		srcs/algorithm/ft_rotate_and_push.c \
+		srcs/algorithm/ft_sort_big.c \
+		srcs/algorithm/ft_sort_three.c \
+		srcs/algorithm/ft_rotate_type.c \
 		srcs/operations/pa.c \
 		srcs/operations/pb.c \
 		srcs/operations/ra.c \
@@ -26,20 +25,20 @@ SRC =	srcs/push_swap/push_swap.c \
 		srcs/operations/sa.c \
 		srcs/operations/sb.c \
 		srcs/operations/ss.c \
- 		srcs/push_swap/ft_check_dup.c \
-		srcs/push_swap/ft_check_sorted.c \
-		srcs/push_swap/ft_error_print.c \
-		srcs/push_swap/ft_free.c \
+		srcs/checker/ft_parse_args_quoted.c \
+		srcs/checker/ft_check_args.c \
+ 		srcs/checker/ft_check_dup.c \
+		srcs/checker/ft_check_sorted.c \
+		srcs/checker/ft_parse.c \
+		srcs/checker/ft_check_utils.c \
 		srcs/list/lst_utils.c \
 		srcs/list/lst_utils_2.c \
-		srcs/push_swap/ft_parse_args_quoted.c \
 		srcs/list/ft_list_args.c \
-		srcs/push_swap/ft_check_args.c \
-		srcs/push_swap/ft_sort_big.c \
-		srcs/push_swap/ft_sort_three.c \
-		srcs/push_swap/ft_rotate_type.c \
-			
-
+		srcs/list/ft_add_back.c \
+		srcs/list/ft_stack_new.c \
+		srcs/error/ft_error_print.c \
+		srcs/error/ft_free.c \
+		
 OBJ = ${SRC:.c=.o}
 
 INCLUDE = -L ./libft -lft
