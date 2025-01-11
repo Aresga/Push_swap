@@ -7,7 +7,6 @@ OBJ_DIR = obj/
 SRC_DIR = srcs/
 
 SRC =	srcs/main.c \
-		srcs/algorithm/algorithm.c \
 		srcs/algorithm/solver_utils_ab.c \
 		srcs/algorithm/solver_utils_ba.c \
 		srcs/algorithm/ft_rotate_and_push.c \
@@ -25,6 +24,7 @@ SRC =	srcs/main.c \
 		srcs/operations/sa.c \
 		srcs/operations/sb.c \
 		srcs/operations/ss.c \
+		srcs/checker/algorithm.c \
 		srcs/checker/ft_parse_args_quoted.c \
 		srcs/checker/ft_check_args.c \
  		srcs/checker/ft_check_dup.c \
@@ -38,7 +38,7 @@ SRC =	srcs/main.c \
 		srcs/list/ft_stack_new.c \
 		srcs/error/ft_error_print.c \
 		srcs/error/ft_free.c \
-		
+
 OBJ = ${SRC:.c=.o}
 
 INCLUDE = -L ./libft -lft
