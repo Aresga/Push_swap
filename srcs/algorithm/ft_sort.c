@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 20:59:53 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/12 21:37:07 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_sort_b_till_3(t_stack **a, t_stack **b)
 	while (ft_lstsize(*a) > 3 && !ft_checksorted(*a))
 	{
 		tmp = *a;
-		i = ft_rotate_type_ab(*a, *b);
+		i = calculate_rotation_ab(*a, *b);
 		while (i >= 0)
 		{
 			if (i == calculate_cost(*a, *b, tmp->nbr, RA_RB))
@@ -70,7 +70,7 @@ t_stack	**ft_sort_a(t_stack **a, t_stack **b)
 	while (*b)
 	{
 		tmp = *b;
-		i = ft_rotate_type_ba(*a, *b);
+		i = calculate_rotation_ba(*a, *b);
 		while (i >= 0)
 		{
 			if (i == calculate_cost_a(*a, *b, tmp->nbr, RA_RB))

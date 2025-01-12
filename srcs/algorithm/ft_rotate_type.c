@@ -6,20 +6,20 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:05 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 20:55:01 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/12 21:24:18 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	ft_rotate_type_ba(t_stack *a, t_stack *b)
+int	calculate_rotation_ba(t_stack *a, t_stack *b)
 {
 	int		i;
 	int		cost;
 	t_stack	*tmp;
 
 	tmp = b;
-	i = calculate_cost_a(a, b, b->nbr, RRA_RRB);
+	i = calculate_cost_a(a, b, b->nbr, RA_RB);
 	while (tmp)
 	{
 		cost = calculate_cost_a(a, b, tmp->nbr, RA_RB);
@@ -44,14 +44,14 @@ int	ft_rotate_type_ba(t_stack *a, t_stack *b)
 // course, after rotation there is always one push
 // operation left to do, which is embedded in the code.
 // Function is used during push from A to B.
-int	ft_rotate_type_ab(t_stack *a, t_stack *b)
+int	calculate_rotation_ab(t_stack *a, t_stack *b)
 {
 	int		i;
 	int		cost;
 	t_stack	*tmp;
 
 	tmp = a;
-	i = calculate_cost(a, b, a->nbr, RRA_RRB);
+	i = calculate_cost(a, b, a->nbr, RA_RB);
 	while (tmp)
 	{
 		cost = calculate_cost(a, b, tmp->nbr, RA_RB);

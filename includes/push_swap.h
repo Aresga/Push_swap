@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:52:26 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 21:05:45 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/12 21:24:18 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void		ft_sort(t_stack **stack_a);
 void		ft_sort_b_till_3(t_stack **a, t_stack **b);
 
 // Cost calculations
-int			ft_rotate_type_ab(t_stack *a, t_stack *b);
-int			ft_rotate_type_ba(t_stack *a, t_stack *b);
+int			calculate_rotation_ab(t_stack *a, t_stack *b);
+int			calculate_rotation_ba(t_stack *a, t_stack *b);
 int			calculate_cost(t_stack *stack1, t_stack *stack2, int value, t_direction dir);
 int			calculate_cost_a(t_stack *a, t_stack *b, int c, t_direction dir);
 int			rotate_both_up(t_stack **a, t_stack **b, int c, char s);

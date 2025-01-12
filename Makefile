@@ -28,10 +28,8 @@ SRC =	srcs/main.c \
 		srcs/checker/ft_check_sorted.c \
 		srcs/checker/ft_parse.c \
 		srcs/list/lst_utils.c \
-		srcs/list/lst_utils_2.c \
-		srcs/list/ft_list_args.c \
+		srcs/list/lst_position.c \
 		srcs/list/ft_add_back.c \
-		srcs/list/ft_stack_new.c \
 		srcs/error/ft_error_print.c \
 		srcs/error/ft_free.c \
 
