@@ -7,10 +7,9 @@ OBJ_DIR = obj/
 SRC_DIR = srcs/
 
 SRC =	srcs/main.c \
-		srcs/algorithm/solver_utils_ab.c \
-		srcs/algorithm/solver_utils_ba.c \
-		srcs/algorithm/ft_rotate_and_push.c \
-		srcs/algorithm/ft_sort_big.c \
+		srcs/algorithm/cost_calculator.c \
+		srcs/algorithm/rotate_operations.c \
+		srcs/algorithm/ft_sort.c \
 		srcs/algorithm/ft_sort_three.c \
 		srcs/algorithm/ft_rotate_type.c \
 		srcs/operations/pa.c \
@@ -24,13 +23,10 @@ SRC =	srcs/main.c \
 		srcs/operations/sa.c \
 		srcs/operations/sb.c \
 		srcs/operations/ss.c \
-		srcs/checker/algorithm.c \
-		srcs/checker/ft_parse_args_quoted.c \
+		srcs/checker/args_processor.c \
 		srcs/checker/ft_check_args.c \
- 		srcs/checker/ft_check_dup.c \
 		srcs/checker/ft_check_sorted.c \
 		srcs/checker/ft_parse.c \
-		srcs/checker/ft_check_utils.c \
 		srcs/list/lst_utils.c \
 		srcs/list/lst_utils_2.c \
 		srcs/list/ft_list_args.c \
@@ -43,24 +39,29 @@ OBJ = ${SRC:.c=.o}
 
 INCLUDE = -L ./libft -lft
 
+GREEN = \033[0;32m
+CLEAR = \033[0m
+
 .c.o:
-	${CC} -c $< -o ${<:.c=.o}
+	@${CC} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJ}
-	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${OBJ} -o ${NAME} ${INCLUDE} 
+	@make -C $(LIBFTDIR)
+	@${CC} ${FLAGS} ${OBJ} -o ${NAME} ${INCLUDE}
+	@echo "$(GREEN)✔ push_swap created$(CLEAR)"
 
 all: ${NAME}
 
 
 clean:
-	${RM} ${OBJ} 
+	@${RM} ${OBJ} 
+	@echo "$(GREEN)✔ Push swap object files removed$(CLEAR)"
 	@cd $(LIBFTDIR) && $(MAKE) clean
 
 fclean: clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 	@cd $(LIBFTDIR) && $(MAKE) fclean
-
+	@echo "$(GREEN)✔ full cleanup done!$(CLEAR)"
 re: clean all
 
 .PHONY: all clean fclean re

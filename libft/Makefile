@@ -21,6 +21,9 @@ OBJS_BONUS = $(SRC_BONUS:%.c=$(OBJDIR)/%.o)
 
 NAME = libft.a
 
+GREEN = \033[0;32m
+CLEAR = \033[0m
+
 all: $(NAME)
 
 $(OBJDIR)/%.o: %.c
@@ -30,7 +33,7 @@ $(OBJDIR)/%.o: %.c
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	@echo "$(NAME) created and indxed"
+	@echo "$(GREEN)✔ $(NAME) created and indxed$(CLEAR)"
 
 bonus: $(OBJS) $(OBJS_BONUS)
 ##	@$(CC) $(CFLAGS) -c $(SRC_BONUS)
@@ -40,11 +43,11 @@ bonus: $(OBJS) $(OBJS_BONUS)
 
 clean:
 	@rm -rf $(OBJDIR)
-	@echo "Object files deleted"
+	@echo "$(GREEN)✔ Libft Object files deleted$(CLEAR)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(NAME) deleted"
+	@echo "$(GREEN)✔ $(NAME) deleted $(CLEAR)"
 
 re: fclean all
 
