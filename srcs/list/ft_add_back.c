@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:05:53 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 22:04:30 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/13 22:32:47 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,3 @@ t_stack	*ft_stack_new(int content)
 	new->next = NULL;
 	return (new);
 }
-

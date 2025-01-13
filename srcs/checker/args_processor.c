@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:43:30 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 21:05:45 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/13 22:32:34 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ t_stack	*ft_init_stack(int ac, char **av)
 
 	i = 1;
 	a = NULL;
-	if (ac < 2)
-		exit(0);
-	if (!check_args(av))
-		ft_error();
 	if (ac == 2)
 		a = ft_parse_args_quoted(av);
 	else

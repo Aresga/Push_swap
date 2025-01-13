@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:52:26 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/13 21:32:48 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/13 22:35:22 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,18 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-typedef enum e_direction {
+typedef enum e_direction
+{
 	RA_RB,
 	RRA_RRB,
 	RA_RRB,
 	RRA_RB
-}   t_direction;
+}	t_direction;
 
+// list utils
 void		list_args(char **av, t_stack **stack_a);
 void		ft_add_back(t_stack **stack, t_stack *stack_new);
 t_stack		*ft_stack_new(int content);
-t_stack		*ft_lstlast(t_stack *lst);
 t_stack		*ft_lstlast(t_stack *lst);
 int			ft_lstsize(t_stack *lst);
 
@@ -80,12 +81,12 @@ void		push_to_b3_till_3(t_stack **a, t_stack **b);
 // Cost calculations
 int			calculate_rotation_ab(t_stack *a, t_stack *b);
 int			calculate_rotation_ba(t_stack *a, t_stack *b);
-int			calculate_cost(t_stack *stack1, t_stack *stack2, int value, t_direction dir);
+int			calculate_cost(t_stack *stack1, t_stack *stack2, int value,
+				t_direction dir);
 int			calculate_cost_a(t_stack *a, t_stack *b, int c, t_direction dir);
 int			rotate_both_up(t_stack **a, t_stack **b, int c, char s);
 int			rotate_both_down(t_stack **a, t_stack **b, int c, char s);
 int			rotate_a_down_b_up(t_stack **a, t_stack **b, int c, char s);
 int			rotate_a_up_b_down(t_stack **a, t_stack **b, int c, char s);
-
 
 #endif

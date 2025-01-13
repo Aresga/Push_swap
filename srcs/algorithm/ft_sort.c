@@ -6,18 +6,17 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/13 22:10:53 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/13 22:36:35 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// This function one by one pushes all the elements
-// in stack_a to the stack_b, until only three elements
-// are left in stack_a. While pushing, it makes sure if
-// the stack_b is sorted. When three elements are left,
-// it calls the ft_sort_three function to sort left over
-// elements in stack_a.
+// This function pushes elements from stack_a to stack_b
+// until only three elements remain in stack_a. During this
+// process, it ensures that stack_b is sorted. Once only
+// three elements are left in stack_a, it calls the 
+// ft_sort_three function to sort these remaining elements.
 t_stack	*ft_push_to_b(t_stack **stack_a)
 {
 	t_stack	*stack_b;
