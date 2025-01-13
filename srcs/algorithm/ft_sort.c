@@ -6,37 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 21:37:07 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/13 22:10:53 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-// This function sort and push stacks until 3 members left behind.
-void	ft_sort_b_till_3(t_stack **a, t_stack **b)
-{
-	int		i;
-	t_stack	*tmp;
-
-	while (ft_lstsize(*a) > 3 && !ft_checksorted(*a))
-	{
-		tmp = *a;
-		i = calculate_rotation_ab(*a, *b);
-		while (i >= 0)
-		{
-			if (i == calculate_cost(*a, *b, tmp->nbr, RA_RB))
-				i = rotate_both_up(a, b, tmp->nbr, 'a');
-			else if (i == calculate_cost(*a, *b, tmp->nbr, RRA_RRB))
-				i = rotate_both_down(a, b, tmp->nbr, 'a');
-			else if (i == calculate_cost(*a, *b, tmp->nbr, RA_RRB))
-				i = rotate_a_up_b_down(a, b, tmp->nbr, 'a');
-			else if (i == calculate_cost(*a, *b, tmp->nbr, RRA_RB))
-				i = rotate_a_down_b_up(a, b, tmp->nbr, 'a');
-			else
-				tmp = tmp->next;
-		}
-	}
-}
 
 // This function one by one pushes all the elements
 // in stack_a to the stack_b, until only three elements
@@ -44,17 +18,13 @@ void	ft_sort_b_till_3(t_stack **a, t_stack **b)
 // the stack_b is sorted. When three elements are left,
 // it calls the ft_sort_three function to sort left over
 // elements in stack_a.
-t_stack	*ft_sort_b(t_stack **stack_a)
+t_stack	*ft_push_to_b(t_stack **stack_a)
 {
 	t_stack	*stack_b;
 
 	stack_b = NULL;
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
+	while (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
 		ft_pb(stack_a, &stack_b, 0);
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-		ft_pb(stack_a, &stack_b, 0);
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-		ft_sort_b_till_3(stack_a, &stack_b);
 	if (!ft_checksorted(*stack_a))
 		ft_sort_three(stack_a);
 	return (stack_b);
@@ -62,7 +32,7 @@ t_stack	*ft_sort_b(t_stack **stack_a)
 
 // This function is pushing back the elements from stack_b
 // to stack_a until stack_b is empty. 
-t_stack	**ft_sort_a(t_stack **a, t_stack **b)
+t_stack	**ft_push_to_a(t_stack **a, t_stack **b)
 {
 	int		i;
 	t_stack	*tmp;
@@ -106,8 +76,8 @@ void	ft_sort(t_stack **stack_a)
 		ft_sa(stack_a, 0);
 	else
 	{
-		stack_b = ft_sort_b(stack_a);
-		stack_a = ft_sort_a(stack_a, &stack_b);
+		stack_b = ft_push_to_b(stack_a);
+		stack_a = ft_push_to_a(stack_a, &stack_b);
 		i = ft_index(*stack_a, ft_min(*stack_a));
 		if (i < ft_lstsize(*stack_a) - i)
 		{
