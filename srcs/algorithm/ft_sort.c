@@ -6,28 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 14:15:47 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 17:50:55 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-// This function pushes elements from stack_a to stack_b
-// until only three elements remain in stack_a. During this
-// process, it ensures that stack_b is sorted. Once only
-// three elements are left in stack_a, it calls the 
-// ft_sort_three function to sort these remaining elements.
-t_stack	*ft_push_to_b(t_stack **stack_a)
-{
-	t_stack	*stack_b;
-
-	stack_b = NULL;
-	while (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-		ft_pb(stack_a, &stack_b, 0);
-	if (!ft_checksorted(*stack_a))
-		ft_sort_three(stack_a);
-	return (stack_b);
-}
 
 // This function is pushing back the elements from stack_b
 // to stack_a until stack_b is empty. 
@@ -42,19 +25,59 @@ t_stack	**ft_push_to_a(t_stack **a, t_stack **b)
 		i = calculate_rotation_ba(*a, *b);
 		while (i >= 0)
 		{
-			if (i == calculate_cost_a(*a, *b, tmp->nbr, RA_RB))
+			if (i == calculate_cost(*a, *b, tmp->nbr, RA_RB))
 				i = rotate_both_up(a, b, tmp->nbr, 'b');
-			else if (i == calculate_cost_a(*a, *b, tmp->nbr, RA_RRB))
+			else if (i == calculate_cost(*a, *b, tmp->nbr, RA_RRB))
 				i = rotate_a_up_b_down(a, b, tmp->nbr, 'b');
-			else if (i == calculate_cost_a(*a, *b, tmp->nbr, RRA_RRB))
+			else if (i == calculate_cost(*a, *b, tmp->nbr, RRA_RRB))
 				i = rotate_both_down(a, b, tmp->nbr, 'b');
-			else if (i == calculate_cost_a(*a, *b, tmp->nbr, RRA_RB))
+			else if (i == calculate_cost(*a, *b, tmp->nbr, RRA_RB))
 				i = rotate_a_down_b_up(a, b, tmp->nbr, 'b');
 			else
 				tmp = tmp->next;
 		}
 	}
 	return (a);
+}
+
+// Helper function to check if there are any numbers below max in stack
+int	has_numbers_below(t_stack *stack, int max)
+{
+	while (stack)
+	{
+		if (stack->nbr <= max)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+void	ft_push_chucks_to_b(t_stack **a, t_stack **b)
+{
+	int	min;
+	int	max;
+	int	chunk_size;
+	int	current_max;
+	int	mid_chunk;
+
+	min = ft_min(*a);
+	max = ft_max(*a);
+	chunk_size = (max - min) / 2;
+	current_max = min + chunk_size;
+	while (ft_lstsize(*a) > 3)
+	{
+		if ((*a)->nbr <= current_max)
+		{
+			ft_pb(a, b, 0);
+			mid_chunk = min + (chunk_size / 2);
+			if ((*b)->nbr < mid_chunk)
+				ft_rb(b, 0);
+		}
+		else
+			ft_ra(a, 0);
+		if (!has_numbers_below(*a, current_max))
+			current_max += chunk_size;
+	}
 }
 
 // This function sorts the stack_a if there are more 
@@ -75,7 +98,9 @@ void	ft_sort(t_stack **stack_a)
 		ft_sa(stack_a, 0);
 	else
 	{
-		stack_b = ft_push_to_b(stack_a);
+		ft_push_chucks_to_b(stack_a, &stack_b);
+		if (!ft_checksorted(*stack_a))
+			ft_sort_three(stack_a);
 		stack_a = ft_push_to_a(stack_a, &stack_b);
 		i = ft_index(*stack_a, ft_min(*stack_a));
 		if (i < ft_lstsize(*stack_a) - i)

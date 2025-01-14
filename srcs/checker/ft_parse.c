@@ -6,26 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:19:35 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 14:01:25 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 16:36:53 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-void	ft_freestr(char **lst)
-{
-	char	*n1;
-
-	if (!lst)
-		return ;
-	while (*lst)
-	{
-		n1 = *lst;
-		lst++;
-		free(n1);
-	}
-	*lst = NULL;
-}
 
 t_stack	*ft_parse_args_quoted(char **av)
 {

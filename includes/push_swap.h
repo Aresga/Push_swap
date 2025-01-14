@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:52:26 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 15:41:12 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 17:21:50 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int			ft_min(t_stack *a);
 int			ft_max(t_stack *a);
 int			ft_min_of_four(int a, int b, int c, int d);
 
-//algorithm 
+// nbr position in the list
 int			ft_index(t_stack *a, int nbr);
 int			ft_pos_b(t_stack *stack_b, int nbr_push);
 int			ft_pos_a(t_stack *a, int nbr);
@@ -83,16 +83,18 @@ t_stack		*ft_parse(int ac, char **av);
 t_stack		*ft_parse_args_quoted(char **av);
 void		ft_freestr(char **lst);
 
-void		ft_sort_three(t_stack **stack_a);
-void		ft_sort(t_stack **stack_a);
-
 // Cost calculations
 int			calculate_rotation_ba(t_stack *a, t_stack *b);
+// int			calculate_cost(t_stack *a, t_stack *b, int c, t_direction dir);
 int			calculate_cost(t_stack *a, t_stack *b, int c, t_direction dir);
-int			calculate_cost_a(t_stack *a, t_stack *b, int c, t_direction dir);
 int			rotate_both_up(t_stack **a, t_stack **b, int c, char s);
 int			rotate_both_down(t_stack **a, t_stack **b, int c, char s);
 int			rotate_a_down_b_up(t_stack **a, t_stack **b, int c, char s);
 int			rotate_a_up_b_down(t_stack **a, t_stack **b, int c, char s);
+
+void		ft_push_chucks_to_b(t_stack **stack_a, t_stack **stack_b);
+int			has_numbers_below(t_stack *stack, int max);
+void		ft_sort_three(t_stack **stack_a);
+void		ft_sort(t_stack **stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:11:21 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 22:06:28 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 17:11:39 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,19 @@ void	ft_free(t_stack **lst)
 		free(*lst);
 		*lst = tmp;
 	}
+}
+
+void	ft_freestr(char **lst)
+{
+	char	*n1;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		n1 = *lst;
+		lst++;
+		free(n1);
+	}
+	*lst = NULL;
 }
