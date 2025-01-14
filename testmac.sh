@@ -11,7 +11,7 @@ test_error_cases() {
     echo -e "\n${BLUE}Testing Error Cases${NC}"
     echo "----------------------------------------"
 
-    # Array of test cases
+    # Array of test cases that should show "Error"
     declare -a ERROR_CASES=(
         "2147483648"           # Greater than INT_MAX
         "-2147483649"         # Less than INT_MIN
@@ -19,15 +19,33 @@ test_error_cases() {
         "1 2 abc"            # Non-numeric
         "1 2 2147483648"     # Mix with INT_MAX+1
         "1 2 +2147483648"    # With plus sign
-        ""                   # Empty input
         "1 2 3 2"           # Duplicate not adjacent
         "1 2 3 +"           # Invalid sign
         "1 2 3 -"           # Invalid sign
     )
 
-    local total_tests=0
-    local passed_tests=0
+    # Special test for empty input
+    echo -n "Testing: ./push_swap -> "
+    OUTPUT=$(./push_swap 2>&1)
+    if [[ -z "$OUTPUT" ]]; then
+        echo -e "${GREEN}OK${NC}"
+        ((passed_tests++))
+    else
+        echo -e "${RED}FAILED${NC}"
+    fi
+    ((total_tests++))
 
+    echo -n "Testing: ./push_swap \"\" -> "
+    OUTPUT=$(./push_swap "" 2>&1)
+    if [[ -z "$OUTPUT" ]]; then
+        echo -e "${GREEN}OK${NC}"
+        ((passed_tests++))
+    else
+        echo -e "${RED}FAILED${NC}"
+    fi
+    ((total_tests++))
+
+    # Rest of error cases testing
     for test_case in "${ERROR_CASES[@]}"; do
         echo -n "Testing: ./push_swap $test_case -> "
         OUTPUT=$(./push_swap $test_case 2>&1)
@@ -43,6 +61,7 @@ test_error_cases() {
     echo "----------------------------------------"
     echo -e "Error cases: ${GREEN}$passed_tests/$total_tests passed${NC}"
     echo "----------------------------------------"
+	echo ""
 }
 
 # Function to generate random numbers without duplicates

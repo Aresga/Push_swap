@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:43:30 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 19:25:11 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 19:40:17 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ t_stack	*ft_parse_quoted_args(char **av)
 	char	**tmp;
 	int		i;
 
-	if (av[1][0] == NULL)
-		exit(0);
 	stack_a = NULL;
 	tmp = ft_split(av[1], ' ');
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:43:46 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 19:11:04 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 19:39:45 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	is_valid_number_format(const char *str)
 
 	i = 0;
 	has_digit = 0;
+	if (str[0] == '\0')
+		exit(0);
 	while (str[i] == ' ')
 		i++;
 	if (str[i] == '-')
