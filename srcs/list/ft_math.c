@@ -1,40 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 20:06:42 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/11 20:07:05 by agaga            ###   ########.fr       */
+/*   Created: 2025/01/14 14:04:31 by agaga             #+#    #+#             */
+/*   Updated: 2025/01/14 15:37:13 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-// This function returns the last element of the stack.
-t_stack	*ft_lstlast(t_stack *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
-
-// This function returns the size of the stack.
-int	ft_lstsize(t_stack *lst)
-{
-	size_t	i;
-
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
-}
 
 // This function finds and returns the smallest number
 // in the given stack.
@@ -66,4 +42,20 @@ int	ft_max(t_stack *a)
 		a = a->next;
 	}
 	return (i);
+}
+
+// This function finds and returns the smallest 
+// number out of four given numbers.
+int	ft_min_of_four(int a, int b, int c, int d)
+{
+	int	min;
+
+	min = a;
+	if (b < min)
+		min = b;
+	if (c < min)
+		min = c;
+	if (d < min)
+		min = d;
+	return (min);
 }

@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:19:35 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 21:05:45 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 14:01:25 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_stack	*ft_parse_args_quoted(char **av)
 	i = 0;
 	while (tmp[i])
 	{
-		ft_add_back(&stack_a, ft_stack_new(ft_atoi(tmp[i])));
+		ft_lstadd_back(&stack_a, ft_stack_new(ft_atoi(tmp[i])));
 		i++;
 	}
 	ft_freestr(tmp);

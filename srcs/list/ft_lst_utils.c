@@ -1,19 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_back.c                                      :+:      :+:    :+:   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 20:05:53 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/13 22:32:47 by agaga            ###   ########.fr       */
+/*   Created: 2025/01/11 20:06:42 by agaga             #+#    #+#             */
+/*   Updated: 2025/01/14 14:01:25 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// This function returns the last element of the stack.
+t_stack	*ft_lstlast(t_stack *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
+// This function returns the size of the stack.
+int	ft_lstsize(t_stack *lst)
+{
+	size_t	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
+
 // Function to add a new node to the stack from back side
-void	ft_add_back(t_stack **stack, t_stack *stack_new)
+void	ft_lstadd_back(t_stack **stack, t_stack *stack_new)
 {
 	if (!stack)
 		return ;
@@ -29,7 +53,7 @@ void	ft_add_back(t_stack **stack, t_stack *stack_new)
 // value where we can make math operations.
 // With stack new we create a new node for the current 
 // argument without linking it to list.
-// We make linking stage in ft_add_back call.
+// We make linking stage in ft_lstadd_back call.
 void	list_args(char **av, t_stack **stack_a)
 {
 	long	i;
@@ -37,7 +61,7 @@ void	list_args(char **av, t_stack **stack_a)
 	i = 1;
 	while (av[i] != NULL)
 	{
-		ft_add_back(stack_a, ft_stack_new(ft_atoi(av[i])));
+		ft_lstadd_back(stack_a, ft_stack_new(ft_atoi(av[i])));
 		i++;
 	}
 }

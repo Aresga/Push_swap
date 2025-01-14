@@ -117,7 +117,7 @@ echo "========================"
 test_push_swap 100 20
 
 # Test with 500 numbers (5 iterations)
-test_push_swap 500 10
+test_push_swap 500 20
 
 
 

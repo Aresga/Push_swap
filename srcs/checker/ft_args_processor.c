@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:43:30 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/13 22:32:34 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 14:00:47 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*ft_init_stack(int ac, char **av)
 	{
 		while (i < ac)
 		{
-			ft_add_back(&a, ft_stack_new(ft_atoi(av[i])));
+			ft_lstadd_back(&a, ft_stack_new(ft_atoi(av[i])));
 			i++;
 		}
 	}
