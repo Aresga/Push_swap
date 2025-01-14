@@ -6,6 +6,45 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+# Function to test error cases
+test_error_cases() {
+    echo -e "\n${BLUE}Testing Error Cases${NC}"
+    echo "----------------------------------------"
+
+    # Array of test cases
+    declare -a ERROR_CASES=(
+        "2147483648"           # Greater than INT_MAX
+        "-2147483649"         # Less than INT_MIN
+        "1 2 3 3"            # Duplicates
+        "1 2 abc"            # Non-numeric
+        "1 2 2147483648"     # Mix with INT_MAX+1
+        "1 2 +2147483648"    # With plus sign
+        ""                   # Empty input
+        "1 2 3 2"           # Duplicate not adjacent
+        "1 2 3 +"           # Invalid sign
+        "1 2 3 -"           # Invalid sign
+    )
+
+    local total_tests=0
+    local passed_tests=0
+
+    for test_case in "${ERROR_CASES[@]}"; do
+        echo -n "Testing: ./push_swap $test_case -> "
+        OUTPUT=$(./push_swap $test_case 2>&1)
+        if [[ "$OUTPUT" == "Error" ]]; then
+            echo -e "${GREEN}OK${NC}"
+            ((passed_tests++))
+        else
+            echo -e "${RED}FAILED${NC}"
+        fi
+        ((total_tests++))
+    done
+
+    echo "----------------------------------------"
+    echo -e "Error cases: ${GREEN}$passed_tests/$total_tests passed${NC}"
+    echo "----------------------------------------"
+}
+
 # Function to generate random numbers without duplicates
 generate_numbers() {
     local size=$1
@@ -112,6 +151,9 @@ chmod +x ./push_swap ./checker_mac
 # Run tests
 echo "Starting Push_Swap Tests"
 echo "========================"
+
+# Test error cases first
+test_error_cases
 
 # Test with 100 numbers (5 iterations)
 test_push_swap 100 20

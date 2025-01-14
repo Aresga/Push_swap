@@ -6,18 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:43:46 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/12 21:05:30 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 19:11:04 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-static int	is_valid_char(char c)
-{
-	if ((c >= '0' && c <= '9') || c == '-' || c == ' ')
-		return (1);
-	return (0);
-}
 
 static int	is_valid_number_format(const char *str)
 {
@@ -52,10 +45,10 @@ static int	has_duplicates(char **av)
 	while (av[i])
 	{
 		j = i + 1;
-		num1 = ft_atoi(av[i]);
+		num1 = ft_atol(av[i]);
 		while (av[j])
 		{
-			num2 = ft_atoi(av[j]);
+			num2 = ft_atol(av[j]);
 			if (num1 == num2)
 				return (1);
 			j++;

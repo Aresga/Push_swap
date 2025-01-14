@@ -14,10 +14,10 @@ SRC_DIR = srcs/
 
 SRC =	srcs/main.c \
 		srcs/algorithm/ft_cost_calculator.c \
-		srcs/algorithm/ft_rotate_operations.c \
+		srcs/algorithm/ft_rotation_operations.c \
 		srcs/algorithm/ft_sort.c \
 		srcs/algorithm/ft_sort_three.c \
-		srcs/algorithm/ft_rotate_type.c \
+		srcs/algorithm/ft_rotation_optimizer.c \
 		srcs/operations/pa.c \
 		srcs/operations/pb.c \
 		srcs/operations/ra.c \
@@ -29,17 +29,21 @@ SRC =	srcs/main.c \
 		srcs/operations/sa.c \
 		srcs/operations/sb.c \
 		srcs/operations/ss.c \
-		srcs/checker/ft_args_processor.c \
+		srcs/checker/ft_init_stack.c \
 		srcs/checker/ft_check_args.c \
 		srcs/checker/ft_check_sorted.c \
-		srcs/checker/ft_parse.c \
+		srcs/checker/ft_atol.c \
 		srcs/list/ft_lst_utils.c \
 		srcs/list/ft_lst_position.c \
 		srcs/list/ft_math.c \
 		srcs/error/ft_error.c \
 		srcs/error/ft_free.c \
 
-OBJ = ${SRC:.c=.o}
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 INCLUDE = -L ./libft -lft
 
@@ -56,9 +60,8 @@ ${NAME}: ${OBJ}
 
 all: ${NAME}
 
-
 clean:
-	@${RM} ${OBJ} 
+	@${RM} -rf ${OBJ_DIR} 
 	@echo "$(GREEN)✔ Push swap object files removed$(CLEAR)"
 	@cd $(LIBFTDIR) && $(MAKE) clean
 

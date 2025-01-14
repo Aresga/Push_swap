@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   ft_lst_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:06:42 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 14:01:25 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 18:13:50 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,6 @@ void	ft_lstadd_back(t_stack **stack, t_stack *stack_new)
 		*stack = stack_new;
 	else
 		(ft_lstlast(*stack))->next = stack_new;
-}
-
-// While arguments are valid, we start to add them 
-// into stack here one by one with while loop.
-// Atoi takes the number and turn it into an integer 
-// value where we can make math operations.
-// With stack new we create a new node for the current 
-// argument without linking it to list.
-// We make linking stage in ft_lstadd_back call.
-void	list_args(char **av, t_stack **stack_a)
-{
-	long	i;
-
-	i = 1;
-	while (av[i] != NULL)
-	{
-		ft_lstadd_back(stack_a, ft_stack_new(ft_atoi(av[i])));
-		i++;
-	}
 }
 
 // Creates new stack node with given number.

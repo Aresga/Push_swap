@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   args_processor.c                                   :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 19:43:30 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 14:00:47 by agaga            ###   ########.fr       */
+/*   Created: 2025/01/14 19:09:37 by agaga             #+#    #+#             */
+/*   Updated: 2025/01/14 19:16:36 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_stack	*ft_init_stack(int ac, char **av)
+long	ft_atol(const char *str)
 {
-	t_stack	*a;
+	long	result;
+	int		sign;
 	int		i;
 
-	i = 1;
-	a = NULL;
-	if (ac == 2)
-		a = ft_parse_args_quoted(av);
-	else
+	result = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		while (i < ac)
-		{
-			ft_lstadd_back(&a, ft_stack_new(ft_atoi(av[i])));
-			i++;
-		}
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	return (a);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		if ((sign == 1 && result > INT_MAX)
+			|| (sign == -1 && result * sign < INT_MIN))
+			ft_error();
+		i++;
+	}
+	return (result * sign);
 }

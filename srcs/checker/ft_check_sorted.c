@@ -6,13 +6,13 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:57:13 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/11 19:10:42 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/14 18:22:16 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	ft_checksorted(t_stack *stack_a)
+int	ft_check_sorted(t_stack *stack_a)
 {
 	int	i;
 
