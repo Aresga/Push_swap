@@ -2,15 +2,16 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build push_swap",
+            "label": "Build",
             "type": "shell",
-            "command": "make re && make clean",
+            "command": "make",
             "args": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [],
+            "detail": "Compile the push_swap program using make"
         }
     ]
 }

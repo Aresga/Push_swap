@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:06:42 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 18:13:50 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/19 23:40:32 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_lstsize(t_stack *lst)
 	return (i);
 }
 
-// Function to add a new node to the stack from back side
+// add a new node to the stack from back of the stack.
 void	ft_lstadd_back(t_stack **stack, t_stack *stack_new)
 {
 	if (!stack)

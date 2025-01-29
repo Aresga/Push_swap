@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math.c                                             :+:      :+:    :+:   */
+/*   ft_math.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:04:31 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 15:37:13 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/19 23:41:09 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// This function finds and returns the smallest number
-// in the given stack.
+// finds and returns the smallest number in the stack
 int	ft_min(t_stack *a)
 {
 	int		i;
@@ -28,8 +27,7 @@ int	ft_min(t_stack *a)
 	return (i);
 }
 
-// This function finds and returns the biggest number
-// in the given stack.
+// finds and returns the biggest number in the stack
 int	ft_max(t_stack *a)
 {
 	int		i;

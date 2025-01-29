@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_position.c                                     :+:      :+:    :+:   */
+/*   ft_lst_position.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:06:23 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 15:33:08 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/19 23:35:55 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
 // This function finds the index of the number in the stack.
+// it checks the index of the number in the stack.
+// if the number is not in the stack, it returns 0.
 int	ft_index(t_stack *a, int nbr)
 {
 	int		i;
@@ -30,9 +32,9 @@ int	ft_index(t_stack *a, int nbr)
 	return (0);
 }
 
+// nbr_push is the number that is being pushed to the stack_a.
 // This function finds the correct place of the number in stack_a.
-// In other words, it check what index number nbr_push will get 
-// after it is being pushed to the stack_a.
+
 int	ft_pos_a(t_stack *stack_a, int nbr_push)
 {
 	int		i;
@@ -56,8 +58,7 @@ int	ft_pos_a(t_stack *stack_a, int nbr_push)
 	return (i);
 }
 
-// This function finds the correct place of the number in stack_b.
-// In other words, it check what index number nbr_push will get 
+// check what index number nbr_push will get 
 // after it is being pushed to the stack_b.
 int	ft_pos_b(t_stack *stack_b, int nbr_push)
 {

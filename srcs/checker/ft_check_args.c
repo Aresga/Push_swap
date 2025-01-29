@@ -6,12 +6,16 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:43:46 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 19:39:45 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/19 23:30:46 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// Check if the input is a valid number format
+// first i check if the string is empty 
+// then i check if the string has a negative sign at the start
+// then i check if the string has a digit
 static int	is_valid_number_format(const char *str)
 {
 	int	i;
@@ -36,6 +40,7 @@ static int	is_valid_number_format(const char *str)
 	return (has_digit);
 }
 
+// Check if there are duplicates in the input
 static int	has_duplicates(char **av)
 {
 	int		i;
@@ -60,6 +65,10 @@ static int	has_duplicates(char **av)
 	return (0);
 }
 
+// Check if the input is valid 
+// first i check if the input is empty
+// then i check if the input is a valid number format
+// then i check if the input has duplicates
 int	check_args(char **av)
 {
 	int	i;

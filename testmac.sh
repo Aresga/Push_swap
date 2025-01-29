@@ -67,7 +67,7 @@ test_error_cases() {
 # Function to generate random numbers without duplicates
 generate_numbers() {
     local size=$1
-    ruby -e "puts (1..$size).to_a.shuffle.join(' ')"
+    ruby -e "puts (-$size/2..$size/2).to_a.shuffle.join(' ')"
 }
 
 # Function to test push_swap with n numbers
@@ -110,9 +110,12 @@ test_push_swap() {
             echo -e "Test $i: ${GREEN}OK${NC} - Operations: $OP_COUNT"
             successful_tests=$((successful_tests + 1))
         else
-            echo -e "Test $i: ${RED}KO${NC} - Operations: $OP_COUNT"
-            failed_tests=$((failed_tests + 1))
-            # Optionally save failed test case
+            ((failed_tests++))
+            # Save failed test case
+            echo "Test case: $ARGS" >> failed_tests.txt
+            echo "Operations: $OPERATIONS" >> failed_tests.txt
+            echo "Result: $RESULT" >> failed_tests.txt
+            echo "----------------------------------------" >> failed_tests.txt
         fi
     done
 
@@ -174,11 +177,14 @@ echo "========================"
 # Test error cases first
 test_error_cases
 
+# Test with 700 one time for fun
+test_push_swap 700 1
+
 # Test with 100 numbers (5 iterations)
-test_push_swap 100 20
+test_push_swap 100 100
 
 # Test with 500 numbers (5 iterations)
-test_push_swap 500 20
+test_push_swap 500 100
 
 
 

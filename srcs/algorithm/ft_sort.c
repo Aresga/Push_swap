@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 18:28:38 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/20 13:02:44 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_push_chucks_to_b(t_stack **a, t_stack **b)
 
 	min = ft_min(*a);
 	max = ft_max(*a);
-	chunk_size = (max - min) / 2;
+	chunk_size = (max - min) / 3;
 	current_max = min + chunk_size;
 	while (ft_lstsize(*a) > 3)
 	{
@@ -81,14 +81,9 @@ void	ft_push_chucks_to_b(t_stack **a, t_stack **b)
 	}
 }
 
-// This function sorts the stack_a if there are more 
-// than 2 elements in the stack_a.
-// And finally it makes final sort in stack_a after
-// all values pushed to stack_b, sorted and pushed
-// back to stack_a. Because, even the stack_a is
-// sorted at the end, the minimum number have to 
-// at the top of the stack_a. So, it simply brings
-// the smallest number of the stack_a to the top.
+// the main sorting function
+// if the stack has only two elements, swap them
+// if the stack has more than two elements, push the chuncks to stack_b
 void	ft_sort(t_stack **stack_a)
 {
 	t_stack	*stack_b;
