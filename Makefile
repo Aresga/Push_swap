@@ -2,9 +2,9 @@ NAME = push_swap
 
 CC = cc
 
-RM = rm -f
-
 FLAGS = -Wall -Wextra -Werror
+
+RM = rm -f
 
 LIBFTDIR = libft/
 
