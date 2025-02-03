@@ -1,12 +1,3 @@
-Collecting workspace information
-
-Here's a 
-
-README.md
-
- for your Push Swap project:
-
-```markdown
 # Push Swap
 
 A C program that sorts a stack of numbers using two stacks and a limited set of operations, implementing an optimized sorting algorithm.
