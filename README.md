@@ -68,11 +68,13 @@ The sorting process consists of several steps:
 
 ## Performance
 
-- For 100 numbers: avg 600
-- For 500 numbers: avg 4062
+Input Size | Average Operations	| Maximum Operations | Target
+100					~600				646				≤ 700
+500					~4,052				4,330			≤ 5,500
 
-Time complexity of O(nlog(n))
-	
+
+- Time complexity of O(nlogn)
+
 
 
 ## Testing
