@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/30 21:00:48 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/04 00:15:53 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ t_stack	**ft_push_to_a(t_stack **a, t_stack **b)
 		while (i >= 0)
 		{
 			if (i == calculate_cost(*a, *b, tmp->nbr, RA_RB))
-				i = rotate_both_up(a, b, tmp->nbr, 'b');
+				i = rotate_both_up(a, b, tmp->nbr);
 			else if (i == calculate_cost(*a, *b, tmp->nbr, RA_RRB))
-				i = rotate_a_up_b_down(a, b, tmp->nbr, 'b');
+				i = rotate_a_up_b_down(a, b, tmp->nbr);
 			else if (i == calculate_cost(*a, *b, tmp->nbr, RRA_RRB))
-				i = rotate_both_down(a, b, tmp->nbr, 'b');
+				i = rotate_both_down(a, b, tmp->nbr);
 			else if (i == calculate_cost(*a, *b, tmp->nbr, RRA_RB))
-				i = rotate_a_down_b_up(a, b, tmp->nbr, 'b');
+				i = rotate_a_down_b_up(a, b, tmp->nbr);
 			else
 				tmp = tmp->next;
 		}
@@ -52,14 +52,14 @@ int	has_numbers_below(t_stack *stack, int max)
 	return (0);
 }
 
-// 
+// Pushes the chuncks to stack_b after dividing the stack into three parts
 void	ft_push_chucks_to_b(t_stack **a, t_stack **b)
 {
-	int	min;
-	int	max;
-	int	chunk_size;
-	int	current_max;
-	int	mid_chunk;
+	long	min;
+	long	max;
+	long	chunk_size;
+	long	current_max;
+	long	mid_chunk;
 
 	min = ft_min(*a);
 	max = ft_max(*a);
@@ -70,8 +70,8 @@ void	ft_push_chucks_to_b(t_stack **a, t_stack **b)
 		if ((*a)->nbr <= current_max)
 		{
 			ft_pb(a, b, 0);
-			mid_chunk = min + (chunk_size / 2);
-			if ((*b)->nbr < mid_chunk)
+			mid_chunk = current_max - (chunk_size / 2);
+			if ((*b)->nbr < mid_chunk - 1)
 				ft_rb(b, 0);
 		}
 		else

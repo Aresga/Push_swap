@@ -6,12 +6,14 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:05 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 18:21:32 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/04 00:12:37 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// this function calcualte the cost of rotating stack_a and stack_b
+// to get the target number to the top of the stack
 int	calculate_rotation_ba(t_stack *a, t_stack *b)
 {
 	int			min_cost;

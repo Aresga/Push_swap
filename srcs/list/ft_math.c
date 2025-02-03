@@ -6,13 +6,13 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:04:31 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/19 23:41:09 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/02 23:44:08 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// finds and returns the smallest number in the stack
+// finds the smallest number in the stack
 int	ft_min(t_stack *a)
 {
 	int		i;
@@ -27,7 +27,7 @@ int	ft_min(t_stack *a)
 	return (i);
 }
 
-// finds and returns the biggest number in the stack
+// finds the biggest number in the stack
 int	ft_max(t_stack *a)
 {
 	int		i;

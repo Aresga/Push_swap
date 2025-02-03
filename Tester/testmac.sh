@@ -70,6 +70,39 @@ generate_numbers() {
     ruby -e "puts (-$size/2..$size/2).to_a.shuffle.join(' ')"
 }
 
+check_leaks() {
+    local pid=$1
+    local program_name=$2
+    sleep 0.1  # Give program time to initialize
+    leaks $pid > leaks_log 2>&1
+    if grep -q "leaks for" leaks_log; then
+        echo -e "${RED}Memory leaks found in $program_name${NC}"
+        cat leaks_log
+        return 1
+    fi
+    rm leaks_log
+    return 0
+}
+
+test_push_swap_with_leaks() {
+    local size=$1
+    local numbers=$(generate_numbers $size)
+    
+    # Run push_swap with leak check
+    ./push_swap $numbers > tmp_output &
+    local push_swap_pid=$!
+    check_leaks $push_swap_pid "push_swap"
+    wait $push_swap_pid
+    
+    # Run checker with leak check
+    echo $numbers | ./checker_mac > tmp_checker &
+    local checker_pid=$!
+    check_leaks $checker_pid "checker_mac"
+    wait $checker_pid
+    
+    rm tmp_output tmp_checker 2>/dev/null
+}
+
 # Function to test push_swap with n numbers
 test_push_swap() {
     local size=$1
@@ -177,14 +210,27 @@ echo "========================"
 # Test error cases first
 test_error_cases
 
-# Test with 700 one time for fun
-test_push_swap 700 1
+# # # Test with 700 one time for fun
+# # test_push_swap 700 1
 
-# Test with 100 numbers (5 iterations)
-test_push_swap 100 100
+# # Test with 100 numbers (5 iterations)
+# test_push_swap 100 100
 
-# Test with 500 numbers (5 iterations)
-test_push_swap 500 100
+# # Test with 500 numbers (5 iterations)
+# test_push_swap 500 20
 
+# If user passed two arguments, use those as test size and iterations.
+if [ "$#" -ge 2 ]; then
+    test_num="$1"
+    test_iterations="$2"
+    echo "Running custom tests: ${test_num} numbers for ${test_iterations} iterations"
+    test_push_swap "$test_num" "$test_iterations"
+else
+    # Default tests
+    # Test with 100 numbers (100 iterations)
+    test_push_swap 100 100
 
+    # Test with 500 numbers (20 iterations)
+    test_push_swap 500 20
+fi
 

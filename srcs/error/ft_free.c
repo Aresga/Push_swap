@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:11:21 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/19 23:33:49 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/03 20:39:23 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ void	ft_free(t_stack **lst)
 // Function to free the string list 
 void	ft_freestr(char **lst)
 {
-	char	*n1;
+	char	*current_str;
 
 	if (!lst)
 		return ;
 	while (*lst)
 	{
-		n1 = *lst;
+		current_str = *lst;
 		lst++;
-		free(n1);
+		free(current_str);
 	}
 	*lst = NULL;
 }

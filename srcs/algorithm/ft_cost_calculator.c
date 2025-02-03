@@ -6,36 +6,44 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:15:49 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 17:21:50 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/04 00:48:22 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+/**
+ * calculate_cost - Calculates the cost of moving an element in the stack.
+ * @a: Pointer to the first stack.
+ * @b: Pointer to the second stack.
+ * @c: The element to be moved.
+ * @dir: The direction of the move.
+ *
+ * Return: The cost of the move.
+ */
 int	calculate_cost(t_stack *a, t_stack *b, int c, t_direction dir)
 {
-	int	cost;
+	t_cache	cache;
 
-	cost = 0;
+	cache.size_a = ft_lstsize(a);
+	cache.size_b = ft_lstsize(b);
+	cache.pos_a = ft_pos_a(a, c);
+	cache.pos_b = ft_index(b, c);
 	if (dir == RA_RB)
 	{
-		cost = ft_pos_a(a, c);
-		if (cost < ft_index(b, c))
-			cost = ft_index(b, c);
+		cache.cost = cache.pos_a;
+		if (cache.cost < cache.pos_b)
+			cache.cost = cache.pos_b;
 	}
 	else if (dir == RRA_RRB)
 	{
-		cost = ft_lstsize(a) - ft_pos_a(a, c);
-		if (cost < (ft_lstsize(b) - ft_index(b, c)))
-			cost = ft_lstsize(b) - ft_index(b, c);
+		cache.cost = cache.size_a - cache.pos_a;
+		if (cache.cost < (cache.size_b - cache.pos_b))
+			cache.cost = cache.size_b - cache.pos_b;
 	}
 	else if (dir == RA_RRB)
-	{
-		cost = ft_pos_a(a, c) + (ft_lstsize(b) - ft_index(b, c));
-	}
+		cache.cost = cache.pos_a + (cache.size_b - cache.pos_b);
 	else if (dir == RRA_RB)
-	{
-		cost = (ft_lstsize(a) - ft_pos_a(a, c)) + ft_index(b, c);
-	}
-	return (cost);
+		cache.cost = (cache.size_a - cache.pos_a) + cache.pos_b;
+	return (cache.cost);
 }

@@ -6,14 +6,13 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:52:26 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 19:16:59 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/04 00:54:37 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdbool.h>
 # include <limits.h>
 # include "../libft/inc/libft.h"
 
@@ -35,17 +34,27 @@ typedef enum e_direction
 
 typedef struct s_cost
 {
-	int		ra_rb;
-	int		rra_rrb;
-	int		ra_rrb;
-	int		rra_rb;
+	int	ra_rb;
+	int	rra_rrb;
+	int	ra_rrb;
+	int	rra_rb;
 }	t_cost;
+
+typedef struct s_cache
+{
+	int	cost;
+	int	pos_a;
+	int	pos_b;
+	int	size_a;
+	int	size_b;
+}	t_cache;
 
 // list utils
 void		ft_lstadd_back(t_stack **stack, t_stack *stack_new);
 t_stack		*ft_stack_new(int content);
 t_stack		*ft_lstlast(t_stack *lst);
 int			ft_lstsize(t_stack *lst);
+void		ft_sort_five(t_stack **stack_a, t_stack **stack_b);
 
 // checker
 t_stack		*ft_init_stack(int ac, char **av);
@@ -55,6 +64,9 @@ t_stack		*ft_parse_quoted_args(char **av);
 long		ft_atol(const char *str);
 void		ft_error(void);
 void		ft_free(t_stack **lst);
+int			is_valid_number_format(const char *str);
+int			has_duplicates(t_stack *a);
+
 // Operations 
 void		ft_ra(t_stack **a, int j);
 void		ft_rb(t_stack **b, int j);
@@ -84,10 +96,10 @@ void		ft_freestr(char **lst);
 // Cost calculations
 int			calculate_rotation_ba(t_stack *a, t_stack *b);
 int			calculate_cost(t_stack *a, t_stack *b, int c, t_direction dir);
-int			rotate_both_up(t_stack **a, t_stack **b, int c, char s);
-int			rotate_both_down(t_stack **a, t_stack **b, int c, char s);
-int			rotate_a_down_b_up(t_stack **a, t_stack **b, int c, char s);
-int			rotate_a_up_b_down(t_stack **a, t_stack **b, int c, char s);
+int			rotate_both_up(t_stack **a, t_stack **b, int c);
+int			rotate_both_down(t_stack **a, t_stack **b, int c);
+int			rotate_a_down_b_up(t_stack **a, t_stack **b, int c);
+int			rotate_a_up_b_down(t_stack **a, t_stack **b, int c);
 
 void		ft_push_chucks_to_b(t_stack **stack_a, t_stack **stack_b);
 int			has_numbers_below(t_stack *stack, int max);
