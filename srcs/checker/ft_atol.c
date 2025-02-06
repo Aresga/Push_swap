@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:09:37 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/14 19:16:36 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/04 17:47:38 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ long	ft_atol(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
-		if ((sign == 1 && result > INT_MAX)
-			|| (sign == -1 && result * sign < INT_MIN))
-			ft_error();
 		i++;
 	}
 	return (result * sign);

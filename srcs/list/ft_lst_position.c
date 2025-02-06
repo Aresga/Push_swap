@@ -6,11 +6,14 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:06:23 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/04 00:06:36 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 15:53:31 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+// this function is used to find the index of the element in the stack
+// by comparing the element with the current element in the stack
 
 int	ft_index(t_stack *a, int nbr)
 {
@@ -29,6 +32,8 @@ int	ft_index(t_stack *a, int nbr)
 	return (0);
 }
 
+// this function is used to find the position of the element in stack a
+// by comparing the element with the current and next element in the stack
 int	ft_pos_a(t_stack *stack_a, int nbr)
 {
 	int		i;
@@ -36,9 +41,9 @@ int	ft_pos_a(t_stack *stack_a, int nbr)
 
 	i = 1;
 	if (stack_a && nbr < stack_a->nbr && nbr > ft_lstlast(stack_a)->nbr)
-		i = 0;
+		return (0);
 	else if (nbr > ft_max(stack_a) || nbr < ft_min(stack_a))
-		i = ft_index(stack_a, ft_min(stack_a));
+		return (ft_index(stack_a, ft_min(stack_a)));
 	else
 	{
 		tmp = stack_a->next;
@@ -52,6 +57,11 @@ int	ft_pos_a(t_stack *stack_a, int nbr)
 	return (i);
 }
 
+// this function is used to find the position of the element in stack b
+// by comparing the element with the current and next element in the stack
+// if the element is greater than the current 
+// element and less than the next element
+// then the position is returned
 int	ft_pos_b(t_stack *stack_b, int nbr)
 {
 	t_stack	*tmp;

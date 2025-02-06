@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/04 00:15:53 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 15:54:34 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ void	ft_push_chucks_to_b(t_stack **a, t_stack **b)
 		if ((*a)->nbr <= current_max)
 		{
 			ft_pb(a, b, 0);
-			mid_chunk = current_max - (chunk_size / 2);
-			if ((*b)->nbr < mid_chunk - 1)
+			mid_chunk = (min + (chunk_size / 2)) * (1 - (ft_lstsize(*a) >= 150))
+				+ ((current_max) - (chunk_size / 2)) * (ft_lstsize(*a) >= 150);
+			if ((*b)->nbr <= mid_chunk)
 				ft_rb(b, 0);
 		}
 		else

@@ -13,7 +13,6 @@ OBJ_DIR = obj/
 SRC_DIR = srcs/
 
 SRC =	srcs/main.c \
-		srcs/algorithm/ft_cost_calculator.c \
 		srcs/algorithm/ft_rotation_operations.c \
 		srcs/algorithm/ft_sort.c \
 		srcs/algorithm/ft_sort_three.c \
