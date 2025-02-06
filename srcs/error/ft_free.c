@@ -6,11 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:11:21 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/03 20:39:23 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 // Function to free the stack
 // I use a temporary variable to store the next node in the stack

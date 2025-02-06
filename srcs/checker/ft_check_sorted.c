@@ -6,11 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:57:13 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/31 15:21:35 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 // Check if the stack is sorted in ascending order
 // by comparing the current number with the next number

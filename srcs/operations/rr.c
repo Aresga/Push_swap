@@ -6,14 +6,14 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:07:21 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/11 20:12:18 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:58:13 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 // rr : ra and rb at the same time
-void	ft_rr(t_stack **a, t_stack **b, int j)
+void	ft_rr(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -29,6 +29,5 @@ void	ft_rr(t_stack **a, t_stack **b, int j)
 	(*b)->next = tmp;
 	*b = tmp->next;
 	tmp->next = NULL;
-	if (j == 0)
-		ft_printf("rr\n");
+	ft_printf("rr\n");
 }

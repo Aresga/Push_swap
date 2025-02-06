@@ -6,11 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:05 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 15:04:56 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 /**
  * calculate_cost - Calculates the cost of moving an element in the stack.
@@ -49,8 +49,8 @@ int	calculate_cost(t_stack *a, t_stack *b, int c, t_direction dir)
 }
 
 // this function calcualte the cost of rotating stack_a and stack_b
-// to get the target number to the top of the stack
-int	calculate_rotation_ba(t_stack *a, t_stack *b)
+// using 4 diff strategies and return the minimum cost of the 4
+int	calculate_min_cost(t_stack *a, t_stack *b)
 {
 	int			min_cost;
 	int			current_cost;

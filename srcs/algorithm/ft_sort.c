@@ -6,50 +6,38 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 15:54:34 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 20:15:27 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 // This function is pushing back the elements from stack_b
 // to stack_a until stack_b is empty. 
 t_stack	**ft_push_to_a(t_stack **a, t_stack **b)
 {
-	int		i;
+	int		min_cost;
 	t_stack	*tmp;
 
 	while (*b)
 	{
 		tmp = *b;
-		i = calculate_rotation_ba(*a, *b);
-		while (i >= 0)
+		min_cost = calculate_min_cost(*a, *b);
+		while (min_cost >= 0)
 		{
-			if (i == calculate_cost(*a, *b, tmp->nbr, RA_RB))
-				i = rotate_both_up(a, b, tmp->nbr);
-			else if (i == calculate_cost(*a, *b, tmp->nbr, RA_RRB))
-				i = rotate_a_up_b_down(a, b, tmp->nbr);
-			else if (i == calculate_cost(*a, *b, tmp->nbr, RRA_RRB))
-				i = rotate_both_down(a, b, tmp->nbr);
-			else if (i == calculate_cost(*a, *b, tmp->nbr, RRA_RB))
-				i = rotate_a_down_b_up(a, b, tmp->nbr);
+			if (min_cost == calculate_cost(*a, *b, tmp->nbr, RA_RB))
+				min_cost = rotate_both_up(a, b, tmp->nbr);
+			else if (min_cost == calculate_cost(*a, *b, tmp->nbr, RA_RRB))
+				min_cost = rotate_a_up_b_down(a, b, tmp->nbr);
+			else if (min_cost == calculate_cost(*a, *b, tmp->nbr, RRA_RRB))
+				min_cost = rotate_both_down(a, b, tmp->nbr);
+			else if (min_cost == calculate_cost(*a, *b, tmp->nbr, RRA_RB))
+				min_cost = rotate_a_down_b_up(a, b, tmp->nbr);
 			else
 				tmp = tmp->next;
 		}
 	}
 	return (a);
-}
-
-// Helper function to check if there are any numbers below max in stack
-int	has_numbers_below(t_stack *stack, int max)
-{
-	while (stack)
-	{
-		if (stack->nbr <= max)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
 }
 
 // Pushes the chuncks to stack_b after dividing the stack into three parts
@@ -69,14 +57,14 @@ void	ft_push_chucks_to_b(t_stack **a, t_stack **b)
 	{
 		if ((*a)->nbr <= current_max)
 		{
-			ft_pb(a, b, 0);
-			mid_chunk = (min + (chunk_size / 2)) * (1 - (ft_lstsize(*a) >= 150))
-				+ ((current_max) - (chunk_size / 2)) * (ft_lstsize(*a) >= 150);
+			ft_pb(a, b);
+			mid_chunk = (min + (chunk_size / 2)) * (1 - (ft_lstsize(*a) >= 100))
+				+ ((current_max) - (chunk_size / 2)) * (ft_lstsize(*a) >= 100);
 			if ((*b)->nbr <= mid_chunk)
-				ft_rb(b, 0);
+				ft_rb(b);
 		}
 		else
-			ft_ra(a, 0);
+			ft_ra(a);
 		if (!has_numbers_below(*a, current_max))
 			current_max += chunk_size;
 	}
@@ -92,7 +80,7 @@ void	ft_sort(t_stack **stack_a)
 
 	stack_b = NULL;
 	if (ft_lstsize(*stack_a) == 2)
-		ft_sa(stack_a, 0);
+		ft_sa(stack_a);
 	else
 	{
 		ft_push_chucks_to_b(stack_a, &stack_b);
@@ -103,12 +91,12 @@ void	ft_sort(t_stack **stack_a)
 		if (i < ft_lstsize(*stack_a) - i)
 		{
 			while ((*stack_a)->nbr != ft_min(*stack_a))
-				ft_ra(stack_a, 0);
+				ft_ra(stack_a);
 		}
 		else
 		{
 			while ((*stack_a)->nbr != ft_min(*stack_a))
-				ft_rra(stack_a, 0);
+				ft_rra(stack_a);
 		}
 	}
 }

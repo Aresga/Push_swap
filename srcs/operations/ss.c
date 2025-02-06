@@ -6,14 +6,14 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:06:45 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/16 18:38:22 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:57:49 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 // ss : sa and sb at the same time.
-void	ft_ss(t_stack **a, t_stack **b, int j)
+void	ft_ss(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -27,6 +27,5 @@ void	ft_ss(t_stack **a, t_stack **b, int j)
 	*b = (*b)->next;
 	tmp->next = (*b)->next;
 	(*b)->next = tmp;
-	if (j == 0)
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 }

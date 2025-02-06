@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:52:26 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/04 00:54:37 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:55:44 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,18 @@ int			is_valid_number_format(const char *str);
 int			has_duplicates(t_stack *a);
 
 // Operations 
-void		ft_ra(t_stack **a, int j);
-void		ft_rb(t_stack **b, int j);
-void		ft_sa(t_stack **a, int j);
-void		ft_pa(t_stack **a, t_stack **b, int j);
-void		ft_pb(t_stack **stack_a, t_stack **stack_b, int j);
-void		ft_rra(t_stack **a, int j);
-void		ft_ss(t_stack **a, t_stack **b, int j);
-void		ft_rr(t_stack **a, t_stack **b, int j);
-void		ft_rrr_sub(t_stack **b, int j);
-void		ft_rrr(t_stack **a, t_stack **b, int j);
-void		ft_sb(t_stack **b, int j);
-void		ft_rrb(t_stack **b, int j);
+void		ft_ra(t_stack **a);
+void		ft_rb(t_stack **b);
+void		ft_sa(t_stack **a);
+void		ft_pa(t_stack **a, t_stack **b);
+void		ft_pb(t_stack **stack_a, t_stack **stack_b);
+void		ft_rra(t_stack **a);
+void		ft_ss(t_stack **a, t_stack **b);
+void		ft_rr(t_stack **a, t_stack **b);
+void		ft_rrr_sub(t_stack **b);
+void		ft_rrr(t_stack **a, t_stack **b);
+void		ft_sb(t_stack **b);
+void		ft_rrb(t_stack **b);
 
 //Math 
 int			ft_min(t_stack *a);
@@ -94,7 +94,7 @@ int			ft_pos_a(t_stack *a, int nbr);
 void		ft_freestr(char **lst);
 
 // Cost calculations
-int			calculate_rotation_ba(t_stack *a, t_stack *b);
+int			calculate_min_cost(t_stack *a, t_stack *b);
 int			calculate_cost(t_stack *a, t_stack *b, int c, t_direction dir);
 int			rotate_both_up(t_stack **a, t_stack **b, int c);
 int			rotate_both_down(t_stack **a, t_stack **b, int c);

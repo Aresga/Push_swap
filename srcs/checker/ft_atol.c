@@ -6,11 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:09:37 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/04 17:47:38 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 long	ft_atol(const char *str)
 {

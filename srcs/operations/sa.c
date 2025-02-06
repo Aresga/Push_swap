@@ -6,15 +6,15 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:04:25 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/09 19:04:44 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:57:31 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 // sa (swap a) : swap the first 2 elements at the top of stack a. 
 // Do nothing if there is only one or no elements).
-void	ft_sa(t_stack **a, int j)
+void	ft_sa(t_stack **a)
 {
 	t_stack	*tmp;
 
@@ -24,6 +24,5 @@ void	ft_sa(t_stack **a, int j)
 	*a = (*a)->next;
 	tmp->next = (*a)->next;
 	(*a)->next = tmp;
-	if (j == 0)
-		ft_printf("sa\n");
+	ft_printf("sa\n");
 }

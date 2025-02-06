@@ -6,11 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:26:09 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/22 15:54:28 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:48:59 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	main(int ac, char **av)
 {

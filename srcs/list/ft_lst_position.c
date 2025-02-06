@@ -6,15 +6,14 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:06:23 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 15:53:31 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 // this function is used to find the index of the element in the stack
 // by comparing the element with the current element in the stack
-
 int	ft_index(t_stack *a, int nbr)
 {
 	int		i;

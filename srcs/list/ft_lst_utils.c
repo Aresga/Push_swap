@@ -6,21 +6,33 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:06:42 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/02 23:41:56 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
+
+// Helper function to check if there are any numbers below max in stack
+int	has_numbers_below(t_stack *stack, int max)
+{
+	while (stack)
+	{
+		if (stack->nbr <= max)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
 
 // This function returns the size of the stack.
-int	ft_lstsize(t_stack *lst)
+int	ft_lstsize(t_stack *stack)
 {
 	size_t	i;
 
 	i = 0;
-	while (lst)
+	while (stack)
 	{
-		lst = lst->next;
+		stack = stack->next;
 		i++;
 	}
 	return (i);

@@ -6,57 +6,39 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:07:59 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/09 19:08:19 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/06 20:18:00 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
-// Second part of the rrr function
-void	ft_rrr_sub(t_stack **b, int j)
+// Helper function: Reverse rotate a single stack.
+void	ft_reverse_rotate(t_stack **stack)
 {
-	t_stack	*tmp;
-	int		i;
+	t_stack	*prev;
+	t_stack	*cur;
 
-	i = 0;
-	tmp = *b;
-	while ((*b)->next)
+	if (!stack || !(*stack) || !((*stack)->next))
+		return ;
+	prev = NULL;
+	cur = *stack;
+	while (cur->next)
 	{
-		i++;
-		*b = (*b)->next;
+		prev = cur;
+		cur = cur->next;
 	}
-	(*b)->next = tmp;
-	while (i > 1)
-	{
-		tmp = tmp->next;
-		i--;
-	}
-	tmp->next = NULL;
-	if (j == 0)
-		ft_printf("rrr\n");
+	cur->next = *stack;
+	*stack = cur;
+	prev->next = NULL;
 }
 
-// rrr : rra and rrb at the same time.
-void	ft_rrr(t_stack **a, t_stack **b, int j)
+// rrr: Reverse rotate both stacks simultaneously.
+void	ft_rrr(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
-	int		i;
-
-	if (!*a || !((*a)->next) || !*b || !((*b)->next))
+	if ((!a || !(*a) || !((*a)->next))
+		|| (!b || !(*b) || !((*b)->next)))
 		return ;
-	i = 0;
-	tmp = *a;
-	while ((*a)->next)
-	{
-		i++;
-		*a = (*a)->next;
-	}
-	(*a)->next = tmp;
-	while (i > 1)
-	{
-		tmp = tmp->next;
-		i--;
-	}
-	tmp->next = NULL;
-	ft_rrr_sub(b, j);
+	ft_reverse_rotate(a);
+	ft_reverse_rotate(b);
+	ft_printf("rrr\n");
 }
