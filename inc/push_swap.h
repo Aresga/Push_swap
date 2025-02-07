@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:52:26 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 18:55:44 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 16:03:19 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void		ft_sort_five(t_stack **stack_a, t_stack **stack_b);
 
 // checker
 t_stack		*ft_init_stack(int ac, char **av);
+void		ft_freeerror(char ** tokens, t_stack ** a);
 int			check_args(char **av);
 int			ft_check_sorted(t_stack *stack_a);
 t_stack		*ft_parse_quoted_args(char **av);
@@ -88,8 +89,8 @@ int			ft_min_of_four(int a, int b, int c, int d);
 
 // nbr position in the list
 int			ft_index(t_stack *a, int nbr);
-int			ft_pos_b(t_stack *stack_b, int nbr_push);
-int			ft_pos_a(t_stack *a, int nbr);
+int			ft_position_b(t_stack *stack_b, int nbr_push);
+int			ft_position_a(t_stack *a, int nbr);
 
 void		ft_freestr(char **lst);
 

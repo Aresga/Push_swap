@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:06:42 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 16:33:12 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ t_stack	*ft_stack_new(int content)
 {
 	t_stack	*new;
 
-	new = malloc(sizeof (t_stack));
+	new = malloc(sizeof(t_stack));
 	if (!new)
-		ft_error();
+		return (NULL);
 	new->nbr = content;
 	new->next = NULL;
 	return (new);

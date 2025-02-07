@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:11:38 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 14:39:00 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@
 void	ft_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }

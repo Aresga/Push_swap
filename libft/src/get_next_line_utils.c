@@ -6,26 +6,26 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 13:44:06 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/13 22:31:20 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 15:16:19 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
 
-char	*ft_strchr(const char *s, int c)
-{
-	if (!s)
-		return (NULL);
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (NULL);
-}
+// char	*ft_strchr(const char *s, int c)
+// {
+// 	if (!s)
+// 		return (NULL);
+// 	while (*s)
+// 	{
+// 		if (*s == (char)c)
+// 			return ((char *)s);
+// 		s++;
+// 	}
+// 	if ((char)c == '\0')
+// 		return ((char *)s);
+// 	return (NULL);
+// }
 
 char	*ft_strdup(const char *s)
 {

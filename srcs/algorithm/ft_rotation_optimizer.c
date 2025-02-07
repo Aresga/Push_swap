@@ -6,28 +6,19 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:05 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 13:18:09 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-/**
- * calculate_cost - Calculates the cost of moving an element in the stack.
- * @a: Pointer to the first stack.
- * @b: Pointer to the second stack.
- * @c: The element to be moved.
- * @dir: The direction of the move.
- *
- * Return: The cost of the move.
- */
 int	calculate_cost(t_stack *a, t_stack *b, int c, t_direction dir)
 {
 	t_cache	cache;
 
 	cache.size_a = ft_lstsize(a);
 	cache.size_b = ft_lstsize(b);
-	cache.pos_a = ft_pos_a(a, c);
+	cache.pos_a = ft_position_a(a, c);
 	cache.pos_b = ft_index(b, c);
 	if (dir == RA_RB)
 	{

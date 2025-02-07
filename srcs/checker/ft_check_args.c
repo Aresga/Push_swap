@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:43:46 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 13:22:47 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,21 @@ int	has_duplicates(t_stack *a)
 		current = current->next;
 	}
 	return (0);
+}
+
+// Check if the stack is sorted in ascending order
+// by comparing the current number with the next number
+int	ft_check_sorted(t_stack *stack_a)
+{
+	int	i;
+
+	i = stack_a->nbr;
+	while (stack_a)
+	{
+		if (i > stack_a->nbr)
+			return (0);
+		i = stack_a->nbr;
+		stack_a = stack_a->next;
+	}
+	return (1);
 }

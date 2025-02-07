@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:06:23 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 18:44:17 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 13:18:38 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_index(t_stack *a, int nbr)
 
 // this function is used to find the position of the element in stack a
 // by comparing the element with the current and next element in the stack
-int	ft_pos_a(t_stack *stack_a, int nbr)
+int	ft_position_a(t_stack *stack_a, int nbr)
 {
 	int		i;
 	t_stack	*tmp;
@@ -61,7 +61,7 @@ int	ft_pos_a(t_stack *stack_a, int nbr)
 // if the element is greater than the current 
 // element and less than the next element
 // then the position is returned
-int	ft_pos_b(t_stack *stack_b, int nbr)
+int	ft_position_b(t_stack *stack_b, int nbr)
 {
 	t_stack	*tmp;
 	t_stack	*current;

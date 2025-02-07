@@ -30,7 +30,6 @@ SRC =	srcs/main.c \
 		srcs/operations/ss.c \
 		srcs/checker/ft_init_stack.c \
 		srcs/checker/ft_check_args.c \
-		srcs/checker/ft_check_sorted.c \
 		srcs/checker/ft_atol.c \
 		srcs/list/ft_lst_utils.c \
 		srcs/list/ft_lst_position.c \
