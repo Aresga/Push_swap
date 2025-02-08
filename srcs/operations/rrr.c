@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:07:59 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 20:18:00 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/08 16:09:59 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 // Helper function: Reverse rotate a single stack.
 void	ft_reverse_rotate(t_stack **stack)
 {
-	t_stack	*prev;
-	t_stack	*cur;
+	t_stack	*previous;
+	t_stack	*current;
 
 	if (!stack || !(*stack) || !((*stack)->next))
 		return ;
-	prev = NULL;
-	cur = *stack;
-	while (cur->next)
+	previous = NULL;
+	current = *stack;
+	while (current->next)
 	{
-		prev = cur;
-		cur = cur->next;
+		previous = current;
+		current = current->next;
 	}
-	cur->next = *stack;
-	*stack = cur;
-	prev->next = NULL;
+	current->next = *stack;
+	*stack = current;
+	previous->next = NULL;
 }
 
 // rrr: Reverse rotate both stacks simultaneously.

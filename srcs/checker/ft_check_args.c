@@ -6,16 +6,13 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:43:46 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/07 13:22:47 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/08 16:40:33 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
 // Check if the input is a valid number format
-// first i check if the string is empty 
-// then i check if the string has a negative sign at the start
-// then i check if the string has a digit
 int	is_valid_number_format(const char *str)
 {
 	int	i;
@@ -60,7 +57,7 @@ int	has_duplicates(t_stack *a)
 
 // Check if the stack is sorted in ascending order
 // by comparing the current number with the next number
-int	ft_check_sorted(t_stack *stack_a)
+int	ft_check_if_sorted(t_stack *stack_a)
 {
 	int	i;
 

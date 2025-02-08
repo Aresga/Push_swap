@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:13:14 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/06 20:15:27 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/08 16:40:03 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ void	ft_push_chucks_to_b(t_stack **a, t_stack **b)
 // if the stack has more than two elements, push the chuncks to stack_b
 void	ft_sort(t_stack **stack_a)
 {
-	t_stack	*stack_b;
 	int		i;
+	t_stack	*stack_b;
 
 	stack_b = NULL;
 	if (ft_lstsize(*stack_a) == 2)
@@ -84,7 +84,7 @@ void	ft_sort(t_stack **stack_a)
 	else
 	{
 		ft_push_chucks_to_b(stack_a, &stack_b);
-		if (!ft_check_sorted(*stack_a))
+		if (!ft_check_if_sorted(*stack_a))
 			ft_sort_three(stack_a);
 		stack_a = ft_push_to_a(stack_a, &stack_b);
 		i = ft_index(*stack_a, ft_min(*stack_a));
