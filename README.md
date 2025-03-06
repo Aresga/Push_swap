@@ -108,4 +108,3 @@ This project is licensed under the terms described in the project license files.
 ## Author
 
 Abderrahman Gaga- agaga@student.hive.fi
-```
