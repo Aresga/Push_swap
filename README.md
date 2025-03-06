@@ -71,35 +71,17 @@ The Push Swap algorithm achieves a time complexity of O(n log n), which is chara
 
 For 100 elements, the average is approximately 600 operations.
 For 500 elements, the average rises to around 4,052 operations.
-The operation count aligns with the model 
-operations
-≈
-𝑛
-⋅
-log
-⁡
-2
-(
-𝑛
-)
-operations≈n⋅log 
-2
-​
- (n), confirming the O(n log n) complexity with optimizations that reduce constant factors.
+
+The operation count aligns with the model operations ≈ n⋅log2(n), confirming the O(n log n) complexity with optimizations that reduce constant factors.
 
 
 ## Testing
 
-The project includes test scripts in the 
+[Tester for Mac](https://github.com/Aresga/Push_swap-Tester/blob/main/testmac.sh)  
+[Tester for Linux](https://github.com/Aresga/Push_swap-Tester/blob/main/testlinux.sh)  
 
-Tester
+You must have checker_linux Or checker_mac in the same directory a long with push_swap executable ! 
 
- directory:
-```bash
-[Link to testmac.sh](https://github.com/Aresga/Push_swap-Tester/blob/main/testmac.sh)  # For testing on macOS
-[Link to testmac.sh](https://github.com/Aresga/Push_swap-Tester/blob/main/testlinux.sh)  # For testing on linux
-```
-#You must have checker_linux Or checker_mac in the same directory a long with push_swap executable ! 
 
 ## Project Structure
 
@@ -123,7 +105,7 @@ Feel free to submit issues and enhancement requests.
 
 ## License
 
-This project is licensed under the terms described in the project license files.
+UNLICENCED
 
 ## Author
 
