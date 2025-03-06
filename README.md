@@ -111,11 +111,10 @@ Tester
 ├── srcs/
 │   ├── algorithm/     # Sorting algorithm implementation
 │   ├── checker/       # Input validation
-│   ├── error/        # Error handling
-│   ├── list/         # Linked list operations
-│   ├── operations/   # Stack operations
-│   └── main.c        # Entry point
-└── Tester/           # Testing scripts
+│   ├── error/         # Error handling
+│   ├── list/          # Linked list operations
+│   ├── operations/    # Stack operations
+│   └── main.c         # Entry point
 ```
 
 ## Contributing
